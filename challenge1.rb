@@ -128,58 +128,44 @@ p array.map { |string| string.capitalize }.join(" ")
 
 # 5. Write a method or function that determines how much a person will [pay in taxes in the United States](https://www.irs.gov/newsroom/irs-provides-tax-inflation-adjustments-for-tax-year-2022) based on their annual income. The method or function should accept a number representing the individual's annual income as an argument and return the amount they will owe in taxes for that year.
 
-# I have to believe that there is a better way of doing this, but here is my best effort for today
+
 # I started with defining a method that will calculate a different percentage depending on the annual_income argument given when method was called.  
 # I created a different method for single vs married.
 # I then tried to figure out how to differentiate between the two methods.
-# that is when I decided to create a class Income_tax and create instances of that class for a single person, citizen1, and a married couple.  
 # Ideally, I would want to prompt the user for input using gets.chomp to ask two questions, marital status and annual income. Based on those answer the method would return the amount owed based on what method is used.
-# I realized I did not need a paremeter for these methods since the paremeters were set in the def initialize.  I removed those parameters and just called the single/married method on the new instances of the class.  
+# I'm not sure how to do that yet, still working...
 
-
-class Income_tax
-    attr_reader :annual_income, :married
-    
-    def initialize(annual_income, married)
-      @annual_income = annual_income
-      @married = married
-    end
-    
-    def single
-      if annual_income > 215950 == true
-        annual_income * 0.35 
-      elsif annual_income > 170050 == true
-        annual_income * 0.32
-      elsif annual_income > 89075 == true
-        annual_income * 0.24
-      elsif annual_income > 41775 == true
-        annual_income * 0.22
-      elsif annual_income > 10275 == true
-        annual_income * 0.12
-      else
-        annual_income * 0.10
-      end
-    end
-    
-    def married
-      if annual_income > 431900 == true
-        annual_income * 0.35 
-      elsif annual_income > 340100 == true
-        annual_income * 0.32
-      elsif annual_income > 178150 == true
-        annual_income * 0.24
-      elsif annual_income > 83550 == true
-        annual_income * 0.22
-      elsif annual_income > 20550 == true
-        annual_income * 0.12
-      else
-        annual_income * 0.10
-      end
-    end
+def single(annual_income)
+  if annual_income > 215950 == true
+    annual_income * 0.35 
+  elsif annual_income > 170050 == true
+    annual_income * 0.32
+  elsif annual_income > 89075 == true
+    annual_income * 0.24
+  elsif annual_income > 41775 == true
+    annual_income * 0.22
+  elsif annual_income > 10275 == true
+    annual_income * 0.12
+  else
+    annual_income * 0.10
   end
-    
-  citizen1 = Income_tax.new(100000, false)
-  p citizen1.single
-  
-  married_couple = Income_tax.new(500000, true)
-  p married_couple.married
+end
+
+def married(annual_income)
+  if annual_income > 431900 == true
+    annual_income * 0.35 
+  elsif annual_income > 340100 == true
+    annual_income * 0.32
+  elsif annual_income > 178150 == true
+    annual_income * 0.24
+  elsif annual_income > 83550 == true
+    annual_income * 0.22
+  elsif annual_income > 20550 == true
+    annual_income * 0.12
+  else
+    annual_income * 0.10
+  end
+end
+
+p married(500000)
+p single(50000)
