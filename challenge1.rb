@@ -132,9 +132,9 @@ p array.map { |string| string.capitalize }.join(" ")
 # I started with defining a method that will calculate a different percentage depending on the annual_income argument given when method was called.  
 # I created a different method for single vs married.
 # I then tried to figure out how to differentiate between the two methods.
-# that is when I decided to creat a class Income_tax and create instances of that class for a single person, citizen1, and a married couple.  
-# the result returns correctly.
+# that is when I decided to create a class Income_tax and create instances of that class for a single person, citizen1, and a married couple.  
 # Ideally, I would want to prompt the user for input using gets.chomp to ask two questions, marital status and annual income. Based on those answer the method would return the amount owed based on what method is used.
+# I realized I did not need a paremeter for these methods since the paremeters were set in the def initialize.  I removed those parameters and just called the single/married method on the new instances of the class.  
 
 
 class Income_tax
@@ -145,7 +145,7 @@ class Income_tax
       @married = married
     end
     
-    def single(annual_income)
+    def single
       if annual_income > 215950 == true
         annual_income * 0.35 
       elsif annual_income > 170050 == true
@@ -161,7 +161,7 @@ class Income_tax
       end
     end
     
-    def married(annual_income)
+    def married
       if annual_income > 431900 == true
         annual_income * 0.35 
       elsif annual_income > 340100 == true
@@ -179,6 +179,7 @@ class Income_tax
   end
     
   citizen1 = Income_tax.new(100000, false)
-  p citizen1.single(100000)
+  p citizen1.single
   
   married_couple = Income_tax.new(500000, true)
+  p married_couple.married
