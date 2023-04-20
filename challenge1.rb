@@ -174,19 +174,20 @@ p single(50000)
 #revisited the problem in review session and built in contintionals into one method
 #after reviewing methods and conditionals I realized I could make longer conditional statments since Ruby will read through each line in the block and execute the code if condition is met; I just had to add another perameter to the method.
 #I set the variable "married" to true by default as a preference
+#made an edit to remove unnecessary boolean value to integers
 
 married = true
 
 def single_married(married, annual_income)
-  if married && annual_income > 431900 == true || married == false && annual_income > 215950 == true
+  if married && annual_income > 431900 || married == false && annual_income > 215950 
     annual_income * 0.35
-  elsif married && annual_income > 340100 == true || married == false && annual_income > 170050 == true
+  elsif married && annual_income > 340100 || married == false && annual_income > 170050 
     annual_income * 0.32
-  elsif married && annual_income > 178150 == true || married == false && annual_income > 89075 == true
+  elsif married && annual_income > 178150 || married == false && annual_income > 89075
     annual_income * 0.24
-  elsif married && annual_income > 83550 == true || married == false && annual_income > 41775 == true
+  elsif married && annual_income > 83550 || married == false && annual_income > 41775
     annual_income * 0.22
-  elsif married && annual_income > 20550 == true || married == false && annual_income > 10275 == true
+  elsif married && annual_income > 20550 || married == false && annual_income > 10275 
     annual_income * 0.12
   else
     annual_income * 0.10
