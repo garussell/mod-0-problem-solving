@@ -169,3 +169,55 @@ end
 
 p married(500000)
 p single(50000)
+
+
+#revisited the problem in review session and built in contintionals into one method
+#after reviewing methods and conditionals I realized I could make longer conditional statments since Ruby will read through each line in the block and execute the code if condition is met; I just had to add another perameter to the method.
+#I set the variable "married" to true by default as a preference
+
+married = true
+
+def single_married(married, annual_income)
+  if married && annual_income > 431900 == true || married == false && annual_income > 215950 == true
+    annual_income * 0.35
+  elsif married && annual_income > 340100 == true || married == false && annual_income > 170050 == true
+    annual_income * 0.32
+  elsif married && annual_income > 178150 == true || married == false && annual_income > 89075 == true
+    annual_income * 0.24
+  elsif married && annual_income > 83550 == true || married == false && annual_income > 41775 == true
+    annual_income * 0.22
+  elsif married && annual_income > 20550 == true || married == false && annual_income > 10275 == true
+    annual_income * 0.12
+  else
+    annual_income * 0.10
+  end
+end
+
+p single_married(true, 500000)  
+p single_married(false, 216000)
+p single_married(true, 341000)
+p single_married(false, 171000)
+p single_married(true, 179000)
+p single_married(false, 90000)
+p single_married(true, 84000)
+p single_married(false, 42000)
+p single_married(true, 21000)
+p single_married(false, 11000)
+p single_married(true, 19000)
+p single_married(false, 9000)
+
+#returns amount owed on taxes
+# bundle exec ruby main.rb
+# 175000.0
+# 75600.0
+# 109120.0
+# 54720.0
+# 42960.0
+# 21600.0
+# 18480.0
+# 9240.0
+# 2520.0
+# 1320.0
+# 1900.0
+# 900.0
+#  
